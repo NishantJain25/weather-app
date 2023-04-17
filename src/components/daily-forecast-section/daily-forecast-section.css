@@ -1,0 +1,33 @@
+#daily-forecast-section{
+    margin: 1em;
+    padding: 1em;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+#daily-forecast-section h1{
+    margin: 0 0 1em 0;
+    font-size: 1rem;
+}
+
+.grid-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.grid-row{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr 0.5fr 0.5fr 1.25fr 1.25fr;
+    text-align: center;
+    align-items: center;
+}
+.grid-row #day{
+    text-align: left;
+}
+.grid-row #condition{
+    height: fit-content;
+}
+.grid-row #condition img{
+    height: 50px;
+    aspect-ratio: 1;
+}
+

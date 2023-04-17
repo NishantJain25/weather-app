@@ -1,0 +1,31 @@
+.forecast-row{
+    padding: 2em 1em;
+}
+#options{
+    position: relative;
+   
+}
+#options .pointer{
+    height: 5px;
+    width: 5px;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    bottom: -15px;
+    transition: all 0.3s cubic-bezier(0.33, 0.14, 0.13, 1.26);
+}
+
+#options button{
+    flex: 1;
+    background: transparent;
+    border: none;
+    position: relative;
+    color: white;
+}
+
+#options .active{
+    font-weight: bold;
+}
+
+
+
