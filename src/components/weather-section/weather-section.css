@@ -1,0 +1,66 @@
+#weather-section{
+    width: 100%;
+    height: fit-content;
+    border-radius: 0 0 50px 50px;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-end;
+    gap: 1em;
+    padding: 2em;
+    box-sizing: border-box;
+}
+.row{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#illustration{
+    flex: 1;
+}
+#temperature-data{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+#temperature-data h1{
+    font-size: 5rem;
+    margin: 0;
+}
+#temperature-data span{
+    font-size: 2rem;
+    font-weight: bold;
+}
+#unit{
+    display: flex;
+    align-self: flex-end;
+    font-size: 5rem !important;
+}
+
+#other-data{
+    border-radius: 25px;
+    padding: 1.5em;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.column{
+    text-align: center;
+    flex: 1;
+}
+.column #title{
+    font-size: 0.8rem;
+    color: grey;
+}
+.column #value{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#other-temp-data #degree-icon{
+    font-size: 0.5rem;
+    position: absolute;
+    top:0;
+}

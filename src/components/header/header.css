@@ -1,0 +1,67 @@
+.header{
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items:center;
+    gap: 20px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+.header-text{
+    padding: 0em;
+}
+.header-text h3,p{
+    margin: 0;
+}
+.menu-button{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.5rem;
+    justify-self: flex-start;
+    height: 30px;
+    width: 30px;
+    z-index: 101;
+    cursor: pointer;
+}
+.menu-button span{
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.menu-button span:nth-child(2){
+    top: 10px;
+    width: 30px;
+}
+.menu-button span:nth-child(3){
+    top: 20px;
+}
+.menu-button.active span{
+    background-color: black;
+}
+.menu-button.active span:nth-child(2){
+    transform: translateX(20px);
+    opacity: 0;
+    background-color: black;
+}
+
+.menu-button.active span:nth-child(odd){
+    width: 30px;
+}
+.menu-button.active span:nth-child(1){
+    
+    transform: translateY(10px) rotate(45deg);
+}
+.menu-button.active span:nth-child(3){
+    
+    transform: translateY(-10px) rotate(-45deg);
+}

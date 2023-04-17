@@ -1,0 +1,32 @@
+#information-row{
+    margin-top: 2em;
+    overflow-x: scroll;
+    transition: all 0.5s ease;
+    justify-content: flex-start;
+    gap: 10px;
+    width: auto;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.2);
+    padding: 1em;
+    border-radius: 20px;
+    width: 200px !important;
+}
+
+.info-container #temp{
+    font-size: 1.5rem;
+    position: relative;
+}
+.info-container #temp span{
+    font-size: 1rem;
+    position: absolute;
+}
+.info-container #date-time{
+    font-size: 0.8rem;
+}
