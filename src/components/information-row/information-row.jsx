@@ -25,13 +25,19 @@ const InformationRow = ({ data }) => {
 		}, 500)
 	}, [data])
 
-	console.log(data)
-	const currentHour = 1
 	return (
 		<div className="row" id="information-row" style={containerState.rowStyle}>
-			{containerState.information.map((interval, key) => (
-				<div className="info-container" key={key}>
-					<p id="date-time">{interval.time}</p>
+			{containerState.information.map((interval, index) => (
+				<div className="info-container" key={index}>
+					<p id="date-time">
+						{index === 12
+							? "12 noon"
+							: index === 0
+							? "12:00 am"
+							: index > 12
+							? index - 12 + ":00 pm"
+							: index + ":00 am"}
+					</p>
 
 					<div id="condition">
 						<img src={interval.condition.icon} />

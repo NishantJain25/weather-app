@@ -8,7 +8,7 @@ import "./header.css"
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	const locationData = useSelector(selectCurrentLocation)
-	console.log(locationData)
+	
 	const { name, region } = locationData
 	const handleClick = () => {
 		setIsMenuOpen((currentState) => !currentState)
@@ -34,7 +34,6 @@ const Header = () => {
 			<Menu isOpen={isMenuOpen} />
 			<div className="header-text">
 				<h3>{name}</h3>
-				<p>25th March, Saturday</p>
 			</div>
 		</div>
 	)

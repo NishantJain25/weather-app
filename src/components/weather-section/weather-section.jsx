@@ -21,7 +21,7 @@ const WeatherSection = () => {
 	} = useSelector(selectCurrentWeather)
 
 	const { temperature, speed } = useSelector(selectPreferences)
-	console.log(temperature)
+
 	return (
 		<section id="weather-section">
 			<div className="row">

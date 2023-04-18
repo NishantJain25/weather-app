@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
 import { setWeatherData } from "./store/weather/weather.action"
 import { selectCurrentWeather } from "./store/weather/weather.selector"
+import Header from "./components/header/header"
 
 function App() {
 	const dispatch = useDispatch()
@@ -12,11 +13,11 @@ function App() {
 	const [bgColor, setBgColor] = useState("#82CAFF")
 	const base_url = `http://api.weatherapi.com/v1/forecast.json?key=6fb6bd1382b8451cbda161610231204&q=Mumbai&days=3&aqi=yes&alerts=no`
 	useEffect(() => {
-		console.log("Inside useEffect")
+		
 		axios
 			.get(base_url)
 			.then((response) => {
-				console.log(response.data)
+				
 				dispatch(setWeatherData(response.data))
 				setBgColor(bgColors[response.data.current.condition.text.toLowerCase()])
 			})
@@ -24,7 +25,7 @@ function App() {
 	}, [])
 
 	const { condition } = useSelector(selectCurrentWeather)
-	console.log(condition)
+	
 	useEffect(() => {
 		if (condition) {
 			setBgColor(bgColors[condition.text.toLowerCase()])
@@ -40,6 +41,7 @@ function App() {
 
 	return (
 		<div className="App" style={{ backgroundColor: `${bgColor}` }}>
+			<Header />
 			<Outlet />
 		</div>
 	)

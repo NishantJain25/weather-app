@@ -1,7 +1,9 @@
 import React from "react"
 import { useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { selectForecastedWeather } from "../../store/weather/weather.selector"
 import { selectPreferences } from "../../store/preferences/preferences.selector"
+import { getDayFromDate, getCurrentDay } from "../../helper/getDateTime.helper"
 import "./daily-forecast-section.css"
 
 const DailyForecastSection = () => {
@@ -16,36 +18,45 @@ const DailyForecastSection = () => {
 		"Friday",
 		"Saturday",
 	]
-	const currentDate = new Date()
-	const currentDay = currentDate.getDay()
+	const currentDay = getCurrentDay()
 
 	return (
 		<section id="daily-forecast-section">
 			<h1>Next 3 days</h1>
 			<div className="grid-container">
 				{forecastday &&
-					forecastday.map((dailyData, key) => {
-						const date = new Date(dailyData.date)
-
-						const day =
-							date.getDay() === currentDay ? "Today" : week[date.getDay()]
+					forecastday.map((dailyData, index) => {
+						const day = getDayFromDate(dailyData.date)
 
 						return (
-							<div className="grid-row" key={key}>
-								<div id="day">{day}</div>
-								<div id="humidity">{dailyData.day.avghumidity}%</div>
-								<div id="condition">
-									<img src={dailyData.day.condition.icon} alt="day-condition" />
+							<NavLink to={`/weather-forecast/${index}`}>
+								<div className="grid-row" key={index}>
+									<div id="day">{day}</div>
+									<div id="humidity">{dailyData.day.avghumidity}%</div>
+									<div id="condition">
+										<img
+											src={dailyData.day.condition.icon}
+											alt="day-condition"
+										/>
+									</div>
+									<div id="condition">
+										<img
+											src={dailyData.hour[20].condition.icon}
+											alt="night-condition"
+										/>
+									</div>
+									<div id="max-temp">
+										{temperature === "c"
+											? dailyData.day.maxtemp_c
+											: dailyData.day.maxtemp_f}
+									</div>
+									<div id="min-temp">
+										{temperature === "c"
+											? dailyData.day.mintemp_c
+											: dailyData.day.mintemp_f}
+									</div>
 								</div>
-								<div id="condition">
-									<img
-										src={dailyData.hour[20].condition.icon}
-										alt="night-condition"
-									/>
-								</div>
-								<div id="max-temp">{temperature === "c" ? dailyData.day.maxtemp_c :dailyData.day.maxtemp_f }</div>
-								<div id="min-temp">{temperature === "c" ? dailyData.day.mintemp_c :dailyData.day.mintemp_f }</div>
-							</div>
+							</NavLink>
 						)
 					})}
 			</div>

@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import "./index.css"
 import App from "./App"
 import Homepage from "./routes/homepage/homepage"
+import DetailPage from "./routes/detail-page/detail-page"
 import { store } from "./store/store"
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <Homepage />,
+			},
+			{
+				path: "/weather-forecast/:viewDay",
+				element: <DetailPage />,
 			},
 		],
 	},
