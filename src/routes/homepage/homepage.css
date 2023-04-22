@@ -1,0 +1,11 @@
+
+
+@media screen and (min-width : 769px) {
+    #homepage{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 20px;
+        overflow-x: hidden;
+        padding: 5em 2em;
+    }
+}

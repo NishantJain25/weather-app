@@ -27,7 +27,7 @@ export const getDayFromDate = (date) => {
 	const dateObject = new Date(date)
 	const currentDay = getCurrentDay()
 	const day = dateObject.getDay()
-	return week[day] === currentDay ? "Today" : week[day]
+	return week[day]
 }
 
 //Returns the current day

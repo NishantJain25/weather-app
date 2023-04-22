@@ -1,12 +1,25 @@
 #information-row{
+    position: relative;
     margin-top: 2em;
     overflow-x: scroll;
     transition: all 0.5s ease;
     justify-content: flex-start;
     gap: 10px;
-    width: auto;
+    width: 100%;
+    padding-bottom: 1em;
 }
 
+#information-row::-webkit-scrollbar{
+    height: 10px;
+    background: transparent;
+    position: absolute;
+    border-radius: 10px;
+}
+#information-row::-webkit-scrollbar-thumb:horizontal{
+    background: rgba(255,255,255,0.2);
+    width: 5px;
+    border-radius: 5px;
+}
 .info-container{
     display: flex;
     flex-direction: column;
@@ -17,16 +30,21 @@
     padding: 1em;
     border-radius: 20px;
     width: 200px !important;
+    transition: all 0.5s ease;
 }
 
 .info-container #temp{
     font-size: 1.5rem;
     position: relative;
+    font-weight: 600;
 }
 .info-container #temp span{
-    font-size: 1rem;
+    font-size: 0.8rem;
     position: absolute;
 }
 .info-container #date-time{
     font-size: 0.8rem;
 }
+
+
+

@@ -5,7 +5,7 @@
     left: 0;
     background-color: transparent;
     font-size: 1.2rem;
-    padding: 0.5em 1em;
+    padding:  1em;
     display: flex;
     align-items:center;
     gap: 20px;
@@ -15,8 +15,10 @@
 .header-text{
     padding: 0em;
 }
-.header-text h3,p{
+.header-text h3{
     margin: 0;
+    font-weight: 400;
+    
 }
 .menu-button{
     display: flex;
@@ -68,3 +70,4 @@
     
     transform: translateY(-10px) rotate(-45deg);
 }
+

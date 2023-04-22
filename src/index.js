@@ -24,6 +24,7 @@ const router = createBrowserRouter([
 		],
 	},
 ])
+
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>

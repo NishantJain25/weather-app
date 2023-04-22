@@ -1,5 +1,5 @@
 .container #details-page{
-    animation: fade-in 0.5s ease;  
+    animation: fade-in 0.5s ease-out;  
     padding: 60px 1em;
 }
 
@@ -11,12 +11,28 @@
     justify-content: space-between;
     text-align: left;
 }
-.information-container{
-    padding: 2em;
-    margin: 2em 0;
+.information-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 2em 0;  
+}
+.information-grid .information-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
     border-radius: 20px;
     background-color: rgba(0,0,0,0.2);
+    text-align: center;
 }
+
+.information-grid .information-container .icon{
+    height: 50px;
+    width: 50px;
+    margin: 10px 0;
+}
+
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -25,5 +41,18 @@
     100%{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .container #details-page{
+        width: 75vw;
+        margin: 0em auto;
+    }
+    .information-grid{
+        gap: 2em;
+    }
+    .information-grid .information-container{
+        padding: 2em 5em;
     }
 }

@@ -9,16 +9,6 @@ import "./daily-forecast-section.css"
 const DailyForecastSection = () => {
 	const { forecastday } = useSelector(selectForecastedWeather)
 	const { temperature } = useSelector(selectPreferences)
-	const week = [
-		"Sunday",
-		"Monday",
-		"Tueday",
-		"Wednesday",
-		"Thursday",
-		"Friday",
-		"Saturday",
-	]
-	const currentDay = getCurrentDay()
 
 	return (
 		<section id="daily-forecast-section">
@@ -26,12 +16,13 @@ const DailyForecastSection = () => {
 			<div className="grid-container">
 				{forecastday &&
 					forecastday.map((dailyData, index) => {
+						const currentDay = getCurrentDay()
 						const day = getDayFromDate(dailyData.date)
 
 						return (
-							<NavLink to={`/weather-forecast/${index}`}>
-								<div className="grid-row" key={index}>
-									<div id="day">{day}</div>
+							<NavLink to={`/weather-forecast/${index}`} key={index}>
+								<div className="grid-row">
+									<div id="day">{day === currentDay ? "Today" : day}</div>
 									<div id="humidity">{dailyData.day.avghumidity}%</div>
 									<div id="condition">
 										<img
@@ -49,11 +40,13 @@ const DailyForecastSection = () => {
 										{temperature === "c"
 											? dailyData.day.maxtemp_c
 											: dailyData.day.maxtemp_f}
+										<span>&#9900;</span>
 									</div>
 									<div id="min-temp">
 										{temperature === "c"
 											? dailyData.day.mintemp_c
 											: dailyData.day.mintemp_f}
+										<span>&#9900;</span>
 									</div>
 								</div>
 							</NavLink>

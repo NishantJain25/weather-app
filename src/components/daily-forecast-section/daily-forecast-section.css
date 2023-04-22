@@ -7,6 +7,7 @@
 #daily-forecast-section h1{
     margin: 0 0 1em 0;
     font-size: 1rem;
+    font-weight: 400;
 }
 
 .grid-container{
@@ -14,14 +15,22 @@
     flex-direction: column;
     gap: 10px;
 }
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
 .grid-row{
     display: grid;
+    position: relative;
     grid-template-columns: 3fr 1.5fr 0.5fr 0.5fr 1.25fr 1.25fr;
     text-align: center;
     align-items: center;
+    color: white;
 }
+
 .grid-row #day{
     text-align: left;
+    font-weight: 600;
 }
 .grid-row #condition{
     height: fit-content;
@@ -30,4 +39,27 @@
     height: 50px;
     aspect-ratio: 1;
 }
-
+.grid-row #humidity,#max-temp ,#min-temp {
+    font-size: 0.8rem;
+}
+.grid-row  span{
+    font-size: 0.5rem;
+    position: absolute;
+}
+@media screen and (min-width : 769px) {
+    #daily-forecast-section{
+       margin: 0;  
+    }
+    #daily-forecast-section h1{
+        padding: 1em;
+    }
+    .grid-row{
+        padding: 0 1em;
+        transition: all 0.3s ease;
+    }
+    .grid-row:hover{
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 10px;
+       
+    }
+}

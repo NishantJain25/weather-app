@@ -11,26 +11,40 @@ function App() {
 	const dispatch = useDispatch()
 	const API_KEY = process.env.API_KEY
 	const [bgColor, setBgColor] = useState("#82CAFF")
+
 	const base_url = `http://api.weatherapi.com/v1/forecast.json?key=6fb6bd1382b8451cbda161610231204&q=Mumbai&days=3&aqi=yes&alerts=no`
-	useEffect(() => {
-		
+	const fetchData = () => {
+		console.log("fetching data")
 		axios
 			.get(base_url)
 			.then((response) => {
-				
 				dispatch(setWeatherData(response.data))
 				setBgColor(bgColors[response.data.current.condition.text.toLowerCase()])
 			})
 			.catch((error) => console.log(error))
+	}
+	useEffect(() => {
+		fetchData()
 	}, [])
 
 	const { condition } = useSelector(selectCurrentWeather)
-	
+
 	useEffect(() => {
 		if (condition) {
-			setBgColor(bgColors[condition.text.toLowerCase()])
+			switch (condition.text.toLowerCase()) {
+				case "sunny":
+					setBgColor(bgColors.day)
+					break
+				case "clear":
+					setBgColor(bgColors.night)
+					break
+				default:
+					setBgColor("#536878")
+					break
+			}
 		}
 	}, [condition])
+
 	const bgColors = {
 		night: "#13294B",
 		day: "#82CAFF",

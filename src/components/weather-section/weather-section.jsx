@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { selectCurrentWeather } from "../../store/weather/weather.selector"
 import { selectPreferences } from "../../store/preferences/preferences.selector"
+import { TbMist, TbCloudFog, TbSunHigh, TbMoon } from "react-icons/tb"
+import { BsCloudMoon } from "react-icons/bs"
+
+import Illustration from "../illustration/illustration"
 import "./weather-section.css"
 
-const WeatherSection = () => {
-	var height = 50
+const WeatherSection = ({ scroll }) => {
 	const {
 		feelslike_c,
 		feelslike_f,
@@ -25,7 +28,12 @@ const WeatherSection = () => {
 	return (
 		<section id="weather-section">
 			<div className="row">
-				<div id="illustration"></div>
+				<div id="illustration">
+					<Illustration
+						condition={condition ? condition.text : "Sunny"}
+						isDay={is_day}
+					/>
+				</div>
 				<div id="temperature-data">
 					<h1>{temperature === "c" ? temp_c : temp_f}</h1>
 					<span id="degree-icon">&#9900;</span>

@@ -1,6 +1,7 @@
 #weather-section{
     width: 100%;
     height: fit-content;
+    
     border-radius: 0 0 50px 50px;
     background-color: rgba(0,0,0,0.2);
     display: flex;
@@ -8,7 +9,7 @@
     align-items: center;
     justify-content:flex-end;
     gap: 1em;
-    padding: 2em;
+    padding: 4em 2em 2em 2em;
     box-sizing: border-box;
 }
 .row{
@@ -16,10 +17,15 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 1em;
 }
 #illustration{
     flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
+
 #temperature-data{
     flex: 1;
     display: flex;
@@ -27,8 +33,9 @@
     
 }
 #temperature-data h1{
-    font-size: 5rem;
+    font-size: 4rem;
     margin: 0;
+    font-weight: 900;
 }
 #temperature-data span{
     font-size: 2rem;
@@ -37,12 +44,13 @@
 #unit{
     display: flex;
     align-self: flex-end;
-    font-size: 5rem !important;
+    font-size: 4rem !important;
 }
 
 #other-data{
     border-radius: 25px;
     padding: 1.5em;
+    
     box-sizing: border-box;
     background-color: rgba(0,0,0,0.3);
 }
@@ -52,15 +60,54 @@
     flex: 1;
 }
 .column #title{
-    font-size: 0.8rem;
-    color: grey;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.8);
 }
 .column #value{
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     font-weight: bold;
+}
+#other-temp-data{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    
+}
+
+
+#condition p, #other-temp-data p{
+    margin: 0;
+    font-size: 0.8rem;
 }
 #other-temp-data #degree-icon{
     font-size: 0.5rem;
     position: absolute;
     top:0;
+   
+}
+
+@media screen and (min-width: 425px) {
+   
+    .column #title{
+        font-size: 0.8rem;
+        
+    }
+    .column #value{
+        font-size: 1rem;
+    }
+    #condition p, #other-temp-data p{
+     
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width : 769px) {
+    #weather-section{
+        border-radius: 20px;
+    }
+    #temperature-data h1{
+        font-size: 5rem;
+    }
+    
 }

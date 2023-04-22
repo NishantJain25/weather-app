@@ -1,5 +1,6 @@
 .forecast-row{
     padding: 2em 1em;
+    
 }
 #options{
     position: relative;
@@ -28,4 +29,14 @@
 }
 
 
-
+@media screen and (min-width: 769px) {
+    .forecast-row{
+        overflow-x:hidden;
+        border-radius: 20px;
+        background-color: rgba(0,0,0,0.2);
+        padding: 2em 1em 0 1em;
+    }
+    .forecast-row::-webkit-scrollbar{
+        display: none;
+    }
+}

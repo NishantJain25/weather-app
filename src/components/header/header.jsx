@@ -7,22 +7,33 @@ import "./header.css"
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [opacity, setOpacity] = useState(0)
 	const locationData = useSelector(selectCurrentLocation)
-	
+
 	const { name, region } = locationData
-	const handleClick = () => {
+	const handleClick = (e) => {
+		e.stopPropagation()
 		setIsMenuOpen((currentState) => !currentState)
 	}
 	useEffect(() => {
-		const closeMenu = () => {
-			setIsMenuOpen(false)
+		const handleScroll = (e) => {
+			window.scrollY ? setOpacity(0.2) : setOpacity(0)
 		}
-		window.addEventListener("click", () => closeMenu)
 
-		return window.removeEventListener("click", closeMenu)
+		window.addEventListener("scroll", handleScroll)
+
+		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
+
 	return (
-		<div className="header">
+		<div
+			className="header"
+			style={{
+				backgroundColor: `rgba(0,0,0,${opacity})`,
+				transition: "all 0.3s ease",
+				backdropFilter: "blur(6px)",
+			}}
+		>
 			<div
 				className={`menu-button ${isMenuOpen ? "active" : ""}`}
 				onClick={handleClick}
